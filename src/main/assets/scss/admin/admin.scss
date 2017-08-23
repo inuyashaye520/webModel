@@ -1,0 +1,76 @@
+#module-admin-leyun {
+  background: #FFF;
+  padding: 70px 0 50px 0;
+
+  footer {
+    border-top: 1px solid #E6E9ED;
+  }
+  .modal-header {
+    .close {
+      margin-top: -26px;
+    }
+  }
+
+  .modal-body {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  input[w-date-picker] {
+    background: none;
+  }
+
+  .red {
+    color: #FF0000;
+  }
+  .black {
+    color: #000;
+  }
+  .blue {
+    color: #0000FF;
+  }
+  .white {
+    color: #fff;
+  }
+  .font-14 {
+    font-size: 14px;
+  }
+  .font-weight {
+    font-weight: 800;
+  }
+
+  .nav_menu {
+    height: 60px;
+    background: #009DD9;
+    .brandname {
+      font-size: 26px;
+    }
+  }
+  .span-title {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .span-pointer {
+    cursor: pointer;
+  }
+  .tile_count {
+    margin: 0;
+  }
+
+  .spinner-container [us-spinner]:not(:empty):before {
+    background-color: rgba(37, 37, 37, 0.2);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    content: "";
+    z-index: 2000000000;
+  }
+
+  .spinner-container {
+    position: relative;
+  }
+
+
+}

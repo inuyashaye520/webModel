@@ -1,0 +1,9 @@
+.inmodal
+    form.form-horizontal(novalidate name='form' )
+        .modal-header
+            h4
+                | 是否退出
+        .modal-footer.text-right
+                button.btn.btn-sm.btn-success.btn-bg-blue(type="button", ng-click="submit(true)") 是
+                button.btn.btn-sm.btn-default(type="button", ng-click="submit(false)", style="margin-bottom:5px;") 否
+

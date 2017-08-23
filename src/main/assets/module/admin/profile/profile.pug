@@ -1,0 +1,25 @@
+.inmodal
+    form.form-horizontal(novalidate name='form' ng-submit="!ui.loading && form.$valid && submit()")
+        .modal-header
+            h4.modal-title 修改密码
+            button.close(type="button", ng-click="cancel()")
+                i.iconfont.icon-iconfontclosesmall
+
+        .modal-body
+            .form-group(ng-class="{'has-error': (form.$submitted || form.password.$touched) && form.password.$invalid}")
+                label.col-xs-4.control-label
+                    | 密码
+                    span.text-danger *
+                .col-xs-6
+                    input.form-control(type="password", name="password", ng-model="pwd.password", required)
+                    span.help-block(ng-show="(form.$submitted || form.password.$touched) && form.password.$invalid") 请输入密码
+            .form-group(ng-class="{'has-error': (form.$submitted || form.password2.$touched) && form.password2.$invalid}")
+                label.col-xs-4.control-label
+                    | 确认密码
+                    span.text-danger *
+                .col-xs-6
+                    input.form-control(type="password", name="password2", ng-model="pwd.pass", required, ng-match="pwd.password")
+                    span.help-block(ng-show='(form.$submitted || form.password2.$touched) && form.password2.$invalid') 请再输一次密码，并且和密码一样
+
+        .modal-footer
+            button.btn.btn-success.btn-md(type="submit") 保存

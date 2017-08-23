@@ -1,0 +1,36 @@
+.inmodal
+    form.form-horizontal(novalidate name='form' ng-submit="!ui.loading && form.$valid && submit()")
+        .modal-header
+            h4.modal-title  用户信息
+            button.close(type="button", ng-click="cancel()")
+                i.iconfont.icon-iconfontclosesmall
+
+        .modal-body
+            .form-group(ng-class="{'has-error': (form.$submitted || form.username.$touched) && form.username.$invalid}")
+                label.col-xs-2.control-label 用户名
+                    span.text-danger *
+                .col-xs-8
+                    input.form-control(name="username", type="text", ng-model="account.username", required)
+                    .text-danger(ng-messages="form.username.$error", ng-if="form.username.$touched || form.$submitted")
+                        span(ng-message="required") 请填写用户名
+            .form-group(ng-class="{'has-error': (form.$submitted || form.fullname.$touched) && form.fullname.$invalid}")
+                label.col-xs-2.control-label 姓名
+                    span.text-danger *
+                .col-xs-8
+                    input.form-control(name="fullname", type="text", ng-model="account.fullname", required)
+                    .text-danger(ng-messages="form.fullname.$error", ng-if="form.fullname.$touched || form.$submitted")
+                        span(ng-message="required") 请填写姓名
+            .form-group(ng-class="{'has-error': (form.$submitted || form.mobile.$touched) && form.mobile.$invalid}")
+                label.col-xs-2.control-label 联系手机
+                    span.text-danger *
+                .col-xs-8
+                    input.form-control(name="mobile", type="text", ng-model="account.mobile", pattern="(13|14|15|18)[0-9]{9}", required )
+                    .text-danger(ng-messages="form.mobile.$error", ng-if="form.mobile.$touched || form.$submitted")
+                        span(ng-message="required") 请填写手机号码
+                        span(ng-message="pattern") 请填写正确的手机号码
+
+        | <@shiro.hasPermission name="账号修改">
+        .modal-footer
+            button.btn.btn-success.btn-sm(type="submit") 保存
+        | </@shiro.hasPermission>
+

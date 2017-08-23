@@ -1,0 +1,26 @@
+doctype html
+html(ng-app="app")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,height=device-height")
+        meta(name="format-detection", content="telephone=yes")
+        title(page-title) IOT
+        base(href="${Context}/wx/")
+        link(href="${Context}/webjars/weui/1.0.2/dist/style/weui.min.css", rel="stylesheet")
+        link(href="${Assets}/iconfont/iconfont.css?version=1476670255", rel="stylesheet")
+
+    body(class="{{$state.current.data.specialClass}}")
+        ui-view
+        script.
+            var Context = "${Context}";
+            var Assets = "${Assets}";
+            var User = ${wxUser};
+        script(src ="http://res.wx.qq.com/open/js/jweixin-1.1.0.js")
+        script(src="${Context}/webjars/jquery/2.2.4/dist/jquery.min.js")
+        script(src="${Context}/webjars/angular/1.5.8/angular.js")
+        script(src="${Context}/webjars/angular-resource/1.5.8/angular-resource.js")
+        script(src="${Context}/webjars/angular-messages/1.5.8/angular-messages.js")
+        script(src="${Context}/webjars/angular-ui-router/0.3.1/release/angular-ui-router.js")
+        script(src="${Context}/webjars/oclazyload/1.0.9/dist/ocLazyLoad.min.js")
+        script(src="${Assets}/angular-weui/dist/angular-weui.min.js?version=1.0.0")
+        script(src="${Assets}/js/wx.js?version=")
