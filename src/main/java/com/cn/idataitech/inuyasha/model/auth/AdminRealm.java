@@ -60,9 +60,10 @@ public class AdminRealm extends ProxyRealm implements InitializingBean {
         return new SimpleAuthenticationInfo(principal, result.getString("password"), AdminRealm.class.getName());
     }
 
-
     @Override
     public void afterPropertiesSet() throws Exception {
         proxyRealm.addRealm(AdminToken.class, this);
     }
+
+
 }

@@ -3,6 +3,7 @@ package com.cn.idataitech.inuyasha.model.page;
 import com.cn.idataitech.inuyasha.model.bean.Constant;
 import com.cn.idataitech.inuyasha.model.error.LoginPage;
 import com.cn.idataitech.inuyasha.model.error.SetLoginPageEvent;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -25,9 +26,9 @@ public class AdminHtml implements LoginPage, ApplicationListener<ApplicationRead
 
     @RequestMapping("/admin/login.html")
     public String login() {
-//        if (SecurityUtils.getSubject().hasRole(Constant.ROLE_ADMIN)) {
-//            return "redirect:/admin/index.html";
-//        }
+        if (SecurityUtils.getSubject().hasRole(Constant.ROLE_ADMIN)) {
+            return "redirect:/admin/index.html";
+        }
         return "/admin/login";
     }
 

@@ -1,5 +1,6 @@
 package com.cn.idataitech.inuyasha.model.config;
 
+import com.cn.idataitech.inuyasha.model.session.shiroTag.ShiroTags;
 import freemarker.cache.ClassTemplateLoader;
 import freemarker.template.TemplateModelException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,8 @@ public class FreemarkerConfig extends FreeMarkerAutoConfiguration.FreeMarkerWebC
 
     public void setServletContext(ServletContext context) {
         contextPath = context.getContextPath();
+
+        configuration.setSharedVariable("shiro", new ShiroTags());
         try {
             configuration.setSharedVariable("ContextPath", contextPath);
             configuration.setSharedVariable("AssetsPath", contextPath + "/assets");
